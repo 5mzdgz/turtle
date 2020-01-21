@@ -1,0 +1,63 @@
+$colors: (
+  "primary": #333333,
+  "blue": #4d89fb,
+  "line": #eeeeee,
+  "danger": #791a15,
+  "red": #b54e45,
+  "info": #4b67af,
+  "white": #fff,
+  "grey": #999,
+  "black": #000,
+);
+
+@each $colorKey, $color in $colors {
+    .text-#{$colorKey} {
+        color: $color;
+    }
+    .bg-#{$colorKey} {
+        background-color: $color;
+    }
+    .bd-#{$colorKey} {
+        border: 1px solid $color;
+    }
+}
+
+.ellipsis-1 {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellipsis-2 {
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    display:-webkit-box; 
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2; 
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+  
+.ps-btm {
+    position: fixed;
+    bottom: .5rem;
+    left: 10%;
+    width: 80%;
+    z-index: 999;
+    overflow: hidden;
+}

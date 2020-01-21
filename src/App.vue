@@ -1,32 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  data() {
+    return {
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
     }
+  },
+  watch: {
+    '$route.name': function (newVal, oldVal) {
+      // console.log(newVal, oldVal)
+      if(newVal.indexOf('login') >= 0 && oldVal && oldVal.indexOf('login') < 0) {
+        sessionStorage.setItem('currentLogin', JSON.stringify(oldVal))
+      }
+		} 
+  },
+  methods: {
+
   }
 }
+</script>
+
+<style lang="scss">
+
 </style>
